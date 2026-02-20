@@ -7,15 +7,21 @@
   "engines": {
     "node": ">=22"
   },
+  "bin": {
+    "openfounder": "dist/cli.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/openfounderai/openfounder.git"
   },
   "scripts": {
-    "build": "tsc -p tsconfig.json"
+    "build": "tsc -p tsconfig.json",
+    "prepare": "cd node_modules/antfarm && npm install --no-fund --no-audit && npm run build"
   },
   "dependencies": {
-    "antfarm": "github:snarktank/antfarm"
+    "@anthropic-ai/sdk": "^0.39.0",
+    "antfarm": "github:snarktank/antfarm",
+    "yaml": "^2.7.0"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
